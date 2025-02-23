@@ -11,7 +11,7 @@ void main(){
     final bool isDartFun = true;
     print('Is Dart fun? $isDartFun');
 
-    // The question mark (?) is used to denote that the variable can be null.
+    /* The question mark (?) is used to denote that the variable can be null. */
     final bool isDartFun?;
     print('Is Dart fun? $isDartFun');
 
@@ -20,4 +20,15 @@ void main(){
 
     final deports = <String>['Basketball', 'Soccer', 'Tennis'];
     print('My deports are ${deports}');
+
+    /* Dynamic type */
+    dynamic myVariable = 'Hello World!';
+    myVariable = 1;
+    myVariable = 3.14159;
+    myVariable = true;
+    myVariable = null;
+    myVariable = ['Apple', 'Banana', 'Orange'];
+    myVariable = {'name': 'John', 'age': 21};
+    myVariable = () => true;
+    print('My variable is $myVariable');
 }
