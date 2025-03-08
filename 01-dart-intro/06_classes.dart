@@ -1,37 +1,54 @@
-void main(){
-  final Person person = Person(
-    name: 'Jhon',
-    age: 30
-  );
+void main() {
+  final Person person = Person(name: 'Jhon', lastName: 'Smith', age: 30);
   print(person);
   print(person.name);
+  print(person.lastName);
   print(person.age);
+  print(person.fullName);
 
   final Map<String, dynamic> personMap = {
     'name': 'Jane',
-    'age': 25
+    'lastName': 'Smith',
+    'age': 25,
   };
 
   final Person person2 = Person.fromJson(personMap);
   print(person2);
   print(person2.name);
+  print(person2.lastName);
+
   print(person2.age);
+
+  person2.setAge = 40;
+
+  print(person2.age);
+
+  print(person2.fullName);
 }
 
 class Person {
-  String name;
+  final String name;
+  final String lastName;
   int age;
 
   /* Person(this.name, this.age); */
 
-  Person({
-    required this.name,
-    required this.age
-  });
+  Person({required this.name, required this.lastName, required this.age});
 
   Person.fromJson(Map<String, dynamic> json)
     : name = json['name'],
+      lastName = json['lastName'],
       age = json['age'];
+
+  //Get full name
+  String get fullName {
+    return this.name + ' ' + this.lastName;
+  }
+
+  //Set age
+  set setAge(int value) {
+    this.age = value;
+  }
 
   @override
   String toString() {
