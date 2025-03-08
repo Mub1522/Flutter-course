@@ -1,5 +1,5 @@
 void main() {
-  final Person person = Person(name: 'Jhon', lastName: 'Smith', age: 30);
+  final Person person = Person(name: 'Jhon', lastName: 'Smith', age: 0);
   print(person);
   print(person.name);
   print(person.lastName);
@@ -33,7 +33,8 @@ class Person {
 
   /* Person(this.name, this.age); */
 
-  Person({required this.name, required this.lastName, required this.age});
+  Person({required this.name, required this.lastName, required this.age})
+    : assert(age > 0, 'Age is not valid');
 
   Person.fromJson(Map<String, dynamic> json)
     : name = json['name'],
@@ -47,6 +48,7 @@ class Person {
 
   //Set age
   set setAge(int value) {
+    if (value == 0) throw 'Age is not valid';
     this.age = value;
   }
 
